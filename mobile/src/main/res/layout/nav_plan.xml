@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cloud.tyler.victoriameals.MainActivity">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="22dp"
+        android:clickable="true"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:elevation="10dp"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/plus" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/tabMeals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meals" />
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/tabIngredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingredients" />
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/tabStores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stores" />
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tabLayout" />
+
+</RelativeLayout>

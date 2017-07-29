@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/title_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/title_planner"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_planner" />
+
+    <item
+        android:id="@+id/title_glance"
+        android:icon="@drawable/ic_date_range_black_24dp"
+        android:title="@string/title_glance" />
+
+    <item
+        android:id="@+id/title_list"
+        android:icon="@drawable/ic_assignment_black_24dp"
+        android:title="@string/title_list" />
+
+</menu>
