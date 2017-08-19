@@ -36,13 +36,11 @@ public class TabIngredients extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        View v = inflater.inflate(R.layout.nav_home, container,false);
+        View v = inflater.inflate(R.layout.fragment_tab_ingredients, container,false);
 
         // Set the Text to try this out
         try
         {
-            homeText = (TextView) v.findViewById(R.id.homeText);
-            homeText.setText("I'm the ingredients tab...");
         }
         catch(Exception e)
         {

@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity
     private FrameLayout frame;
     private Fragment f;
     private NavHome navHome;
-    private NavPlan navPlan;
     private NavGlance navGlance;
     private NavList navList;
     private TextView homeText;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity
                     manager.beginTransaction().replace(R.id.content, navHome).commit();
                     return true;
                 case R.id.title_planner:
-                    manager.beginTransaction().replace(R.id.content, navPlan).commit();
+                    manager.beginTransaction().replace(R.id.content, new NavPlan().newInstance()).commit();
                     return true;
                 case R.id.title_glance:
                     manager.beginTransaction().replace(R.id.content, navGlance).commit();
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity
 
         //initialize fragments
         navHome = new NavHome().newInstance();
-        navPlan = new NavPlan().newInstance();
         navGlance = new NavGlance().newInstance();
         navList = new NavList().newInstance();
 
@@ -63,6 +61,9 @@ public class MainActivity extends AppCompatActivity
         FragmentManager manager = getSupportFragmentManager();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        //initialize Home tab
+        manager.beginTransaction().replace(R.id.content, navHome).commit();
     }
 
 }

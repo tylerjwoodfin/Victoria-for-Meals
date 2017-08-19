@@ -5,22 +5,25 @@ package cloud.tyler.victoriameals;
  */
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.app.ActionBar.Tab;
-import android.app.FragmentTransaction;
 
 public class NavPlan extends Fragment
 {
     private ViewPager viewPager;
+    private FloatingActionButton fab;
 
     public static NavPlan newInstance()
     {
@@ -39,12 +42,29 @@ public class NavPlan extends Fragment
     {
         View v = inflater.inflate(R.layout.nav_plan, container,false);
 
+
+        //View Pager
         final ViewPager viewPager = (ViewPager) v.findViewById(R.id.viewPager);
         TabLayout tabLayout = (TabLayout) v.findViewById(R.id.tabLayout);
 
         viewPager.setAdapter(new PagerAdapter
-                (getFragmentManager(), tabLayout.getTabCount()));
+                (this.getChildFragmentManager(), 3));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        //Floating Action button
+        fab = (FloatingActionButton) v.findViewById(R.id.floatingActionButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new MealAddActivity();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.content, fragment); // fragment container id in first parameter is the  container(Main layout id) of Activity
+                transaction.addToBackStack(null);  // this will manage backstack
+                transaction.commit();
+            }
+        });
+
+        //Tab Listener
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             @Override
@@ -54,12 +74,12 @@ public class NavPlan extends Fragment
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
+                //viewPager.setCurrentItem(tab.getPosition());
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                //viewPager.setCurrentItem(tab.getPosition());
             }
         });
 
